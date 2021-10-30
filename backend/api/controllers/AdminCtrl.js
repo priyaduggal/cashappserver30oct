@@ -81,6 +81,7 @@ exports.login_admin = async ({ body }, res) => {
 	try {
 		Admin.findOne({ email: body.email }, function(err, userexist) {
 			if (userexist) {
+
 				const passwordmatch = bcrypt.compareSync(body.password, userexist.password);
 				console.log(passwordmatch);
 				if (passwordmatch) {
